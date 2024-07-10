@@ -1,0 +1,69 @@
+{
+  "testate": [
+    {
+      "nome": "Ansa",
+      "url": "https://www.ansa.it"
+    },
+    {
+      "nome": "Il Post",
+      "url": "https://www.ilpost.it"
+    },
+    {
+      "nome": "Avvenire",
+      "url": "https://www.avvenire.it/"
+    },
+    {
+      "nome": "Corriere della Sera",
+      "url": "https://www.corriere.it/"
+    },
+    {
+      "nome": "Il Fatto Quotidiano",
+      "url": "https://www.ilfattoquotidiano.it/"
+    },
+    {
+      "nome": "Il Foglio",
+      "url": "https://www.ilfoglio.it/"
+    },
+    {
+      "nome": "Il Giornale",
+      "url": "https://www.ilgiornale.it/"
+    },
+    {
+      "nome": "Il Manifesto",
+      "url": "https://ilmanifesto.it/"
+    },
+    {
+      "nome": "Il Sole 24 Ore",
+      "url": "https://www.ilsole24ore.com"
+    },
+    {
+      "nome": "Il Tempo",
+      "url": "https://www.iltempo.it"
+    },
+    {
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://www.gazzetta.it"
+    },
+    {
+      "nome": "La Repubblica",
+      "url": "https://www.repubblica.it"
+    },
+    {
+      "nome": "La Stampa",
+      "url": "https://www.lastampa.it"
+    },
+    {
+      "nome": "Libero",
+      "url": "https://www.liberoquotidiano.it/"
+    },
+    {
+      "nome": "L'Unità",
+      "url": "https://www.unita.it/"
+    },
+    {
+      "nome": "Il Resto del Carlino",
+      "url": "https://www.ilrestodelcarlino.it/"
+    }
+
+  ]
+}
