@@ -6,7 +6,6 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
-# Load data
 fp_only = os.path.join(os.getcwd(), "ARTICLES DATA", "MERGED DATASET", "merged_output_FIRST_PAGE_ONLY.csv")
 df_fp_only = pd.read_csv(fp_only)
 
@@ -33,10 +32,8 @@ def plot_mean_words(dfcleaned, name):
     
     sorted_mean_words = dict(sorted(mean_words_dict.items(), key=lambda item: item[1], reverse=True))
     
-    # Create subplots with 2 rows and 1 column
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12))
     
-    # Plot first graph (original data)
     ax1.bar(sorted_mean_words.keys(), sorted_mean_words.values(), width=0.5, align='center')
     ax1.set_xlabel('Newspaper')
     ax1.set_ylabel('Average number of words')
@@ -46,7 +43,6 @@ def plot_mean_words(dfcleaned, name):
     ax1.axhline(y=mean_words_global, color='r', linestyle='-', label=f'Global average: {mean_words_global:.2f} words')
     ax1.legend()
     
-    # Plot second graph (summarized data)
     mean_words_summary = mean_words(dfcleaned, column="Summary")
     
     mean_words_summary_dict = {}
@@ -64,17 +60,13 @@ def plot_mean_words(dfcleaned, name):
     ax2.axhline(y=mean_words_summary, color='r', linestyle='-', label=f'Global average: {mean_words_summary:.2f} words')
     ax2.legend()
     
-    # Adjust layout
     plt.tight_layout()
     
-    # Save the combined plot
     plot_output_path = os.path.join(os.getcwd(), "PLOTS", f"{name}.png")
     plt.savefig(plot_output_path, dpi=500, bbox_inches='tight')
     
-    # Show the plot
     plt.show()
 
-# Plot the combined graphs
 plot_mean_words(df_fp_only, "mean_words_combined")
 plot_mean_words(df_fp_only, "WORDS_COUNT")
 
@@ -91,7 +83,6 @@ from itertools import combinations
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Load data
 path = os.path.join(os.getcwd(), "ARTICLES DATA", "MERGED DATASET", "TF-IDF DATAFRAME", "TEXT_LEMM_top_words.csv")
 df = pd.read_csv(path)
 
@@ -171,7 +162,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Load data
 path = os.path.join(os.getcwd(), "ARTICLES DATA", "MERGED DATASET", "TF-IDF DATAFRAME", "DATE", "TEXT_LEMM_top_words.csv")
 df = pd.read_csv(path)
 
