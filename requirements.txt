@@ -1,0 +1,11 @@
+deep_translator
+gensim
+geopandas
+matplotlib
+networkx
+newspaper3k
+nltk
+numpy
+pandas
+seaborn
+scikit-learn
