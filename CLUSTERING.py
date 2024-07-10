@@ -16,12 +16,10 @@ import numpy as np
 import string
 import os
 
-# Download NLTK resources
 nltk.download('punkt')
 nltk.download('stopwords')
 
 def main():
-    # Load the dataset
     current_dir = os.path.dirname(os.path.abspath(__file__))
     fp_only_path = os.path.join(current_dir, 'ARTICLES DATA', 'MERGED DATASET', 'merged_output_FIRST_PAGE_ONLY.csv')
     df = pd.read_csv(fp_only_path)
@@ -50,6 +48,9 @@ def main():
     coherence_scores = {}
     results = []
 
+# ================================
+# EXPLORATORY VISUALIZATION ANALYSIS 
+# ================================    
     for num_topics in range(2, 21):
         lda_model = LdaModel(corpus, num_topics=num_topics, id2word=dictionary, passes=10)
         coherence_model_lda = CoherenceModel(model=lda_model, texts=df['Text_lemm_processed'], dictionary=dictionary, coherence='c_v')
