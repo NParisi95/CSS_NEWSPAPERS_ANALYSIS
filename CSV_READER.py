@@ -89,21 +89,15 @@ import pandas as pd
 import string
 import spacy
 
-# Assuming 'df' is a pandas DataFrame containing your data
 
-# Drop rows where 'Text_lemm' column has NaN values
 df = df.dropna(subset=['Text_lemm'])
 
-# Convert 'Text_lemm' column to lowercase
 df["Text_lemm"] = df["Text_lemm"].apply(lower)
 
-# Load Italian language model from spaCy
 nlp = spacy.load("it_core_news_sm")
 
-# Set of special characters
 special_characters = set(string.punctuation)
 
-# Additional special characters to consider
 additional_special_characters = [
     '¡', '¢', '£', '¤', '¥', '¦', '§', '¨', '©', 'ª', '«', '¬', '®', '¯', '°', '±', '²', '³',
     '´', 'µ', '¶', '·', '¸', '¹', 'º', '»', '¼', '½', '¾', '¿', '×', '÷', '€', '‰', '‱', '†',
@@ -123,12 +117,10 @@ additional_special_characters = [
 
 special_characters.update(additional_special_characters)
 
-# Function to remove verbs from text
 def remove_verbs_from_text(text):
     doc = nlp(text)
     words_without_verbs = []
 
-    # Set of stopwords to exclude
     stopwords = {"another", "to do", 'there', 'fa', 'so much', 'however', 'here it is', 'always', 'because', 'goes', 'that', 'boh', 'among',
                         'del', 'della', 'dello', 'dell', 'degli', 'delle', 'dei',
                         'to the', 'to the', 'to the', 'to the', 'to the', 'to the', 'to the',
@@ -166,23 +158,19 @@ def main():
     
     span_value = ["2024-06-06", "2024-07-15"]
     
-    # Step 1: Merge CSV files
     print("\n STEP 1")
     merge_csv_files(input_folder, output_merged_file)
     
-    # Step 2: Clean merged dataset
     print("\n STEP 2")
     df_merged = pd.read_csv(output_merged_file)
     df_cleaned = clean_date_format(df_merged)
     df_cleaned = remove_duplicates(df_cleaned)
     generate_date_range(df_cleaned, span_value, output_clean_file)
     
-    # Step 3: Filter to first page only
     print("\n STEP 3")
     df_cleaned = pd.read_csv(output_clean_file)
     first_page_only(df_cleaned, output_first_page_file)
     
-    # Step 4: Lemmatize text
     print("\n STEP 4")
     df_fp_only = pd.read_csv(output_first_page_file)
     nlp = spacy.load('it_core_news_sm')
@@ -192,12 +180,10 @@ def main():
     
     df_fp_only.to_csv(output_first_page_file, index=False)
     
-    # Step 5: Pattern recognition and discarding
     print("\n STEP 5")
     df_final = pd.read_csv(output_first_page_file)
     nltk.download('punkt')
     
-    # Further processing can be added here if needed
 
 if __name__ == "__main__":
     main()
